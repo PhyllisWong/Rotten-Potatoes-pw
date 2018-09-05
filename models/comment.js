@@ -5,8 +5,8 @@ const Schema = mongoose.Schema;
 const CommentSchema = new Schema({
   title: String,
   content: String,
-  reviewId: { type: Schema.Types.ObjectId, ref: 'ReviewSchema' }
+  reviewId: { type: Schema.Types.ObjectId, ref: 'Review' }
 });
 
 
-module.exports = mongoose.model('CommentSchema', CommentSchema);
+module.exports = mongoose.model('Comment', CommentSchema);
