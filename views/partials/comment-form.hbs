@@ -1,6 +1,6 @@
 <!--views/partials/comment-form.hbs-->
 
-<form action="/reviews/comments"> <!-- Tell the form the route -->
+<form method="POST" action="/review/comments"> <!-- Tell the form the route -->
   <input type="hidden" value="{{review._id}}" name="reviewId"/>
   <fieldset>
     <legend>Add a Comment</legend>

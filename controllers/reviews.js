@@ -19,7 +19,13 @@ app.get('/', (req, res) => {
 app.get('/reviews/:id', (req, res) => {
   Review.findById(req.params.id)
     .then(review => {
-    res.render('reviews/reviews-show', { review: review })
+      Comment.find({ reviewId: req.params.id })
+        .then(comments => {
+          console.log(comments);
+          // Respond with the template with both values
+          res.render('reviews/reviews-show', { review: review, comments: comments })
+        })
+
   }).catch((err) => {
     console.log(`Error: ${err.message}`);
   })
