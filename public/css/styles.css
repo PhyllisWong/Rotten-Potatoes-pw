@@ -16,3 +16,30 @@
 	/*margin-top: -1rem;*/
 	/*margin-bottom: 2rem;*/
 /*}*/
+
+body {
+	font-size: 2em;
+}
+
+.navbar {
+	height: 100px;
+}
+
+.navbar-custom {
+	background-color: sandybrown !important;
+	height: 100px;
+}
+.navbar-brand {
+	margin-top: 2rem;
+	color: white !important;
+/*	width: 100%;
+	height: auto;*/
+}
+
+.navbar-btn {
+	margin-top: 3rem;
+	background-color: #944d05; /* Brown */
+	border: none;
+	color: white;
+	display: inline-block;
+}
