@@ -34,7 +34,6 @@ app.get('/reviews/:id', (req, res) => {
 
 // CREATE
 app.get('/review/new', (req, res) => {
-  console.log('You clicked new review');
   res.render('reviews/reviews-new', {});
 });
 

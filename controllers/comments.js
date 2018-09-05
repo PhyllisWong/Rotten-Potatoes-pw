@@ -9,16 +9,28 @@ const Comment = require('../models/comment.js');
 
 
 // CREATE Comment
-app.post('/review/comments', (req, res) => {
+app.post('/reviews/comments', (req, res) => {
   Comment.create(req.body)
     .then(comment => {
-      console.log(comment)
-      console.log(req.body);
       res.redirect(`/reviews/${comment.reviewId}`);
     })
     .catch((err) => {
       console.log(err.message);
     })
 });
+
+// DELETE Comment
+app.delete('/reviews/comments/:id', (req, res) => {
+
+  console.log("inside delete route")
+  Comment.findByIdAndRemove(req.params.id)
+    .then((comment) => {
+      res.redirect(`/reviews/${comment.reviewId}`);
+    })
+    .catch((err) => {
+      console.log(err.message);
+    })
+});
+
 
 module.exports = app;
