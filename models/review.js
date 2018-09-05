@@ -8,5 +8,5 @@ const ReviewSchema = new Schema({
   rating: Number
 });
 
-module.exports = mongoose.model('Review', ReviewSchema);
+module.exports = mongoose.model('ReviewSchema', ReviewSchema);
 

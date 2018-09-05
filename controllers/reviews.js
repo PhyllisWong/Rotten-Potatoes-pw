@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const Review = require('../models/review.js');
-// const Comment = require('../models/comment.js');
+const Comment = require('../models/comment.js');
 
 // INDEX: Show all reviews
 app.get('/', (req, res) => {

@@ -4,7 +4,10 @@ const exphbs = require('express-handlebars');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 const bodyParser = require('body-parser');
-
+const reviewsController = require('./controllers/reviews.js');
+const commentsController = require('./controllers/comments.js');
+const Review = require('./models/review.js');
+const Comment = require('./models/comment.js');
 
 // Port
 const port = process.env.PORT || 3000;
@@ -25,8 +28,8 @@ app.set('view engine', 'hbs');
 
 
 // ROUTES
-const reviewsController = require('./controllers/reviews.js');
 app.use('/', reviewsController);
+app.use( commentsController);
 
 
 // 404 page
