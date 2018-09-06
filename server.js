@@ -6,6 +6,7 @@ const methodOverride = require('method-override');
 const bodyParser = require('body-parser');
 const reviewsController = require('./controllers/reviews.js');
 const commentsController = require('./controllers/comments.js');
+const moviesController = require('./controllers/movies.js');
 const Review = require('./models/review.js');
 const Comment = require('./models/comment.js');
 
@@ -30,6 +31,7 @@ app.set('view engine', 'hbs');
 // ROUTES
 app.use('/', reviewsController);
 app.use( commentsController);
+app.use( moviesController);
 
 
 // 404 page

@@ -4,15 +4,15 @@ const Review = require('../models/review.js');
 const Comment = require('../models/comment.js');
 
 // INDEX: Show all reviews
-app.get('/', (req, res) => {
-  Review.find()
-    .then(reviews => {
-      res.render('reviews/reviews-index', { reviews: reviews });
-    })
-    .catch(err => {
-      console.log(`Error: ${err.message}`);
-    });
-});
+// app.get('/', (req, res) => {
+//   Review.find()
+//     .then(reviews => {
+//       res.render('reviews/reviews-index', { reviews: reviews });
+//     })
+//     .catch(err => {
+//       console.log(`Error: ${err.message}`);
+//     });
+// });
 
 
 // SHOW: Show one review
