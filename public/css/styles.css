@@ -1,24 +1,21 @@
-/*.review-container {*/
-	/*margin: 1rem;*/
-	/*margin-bottom: 2rem;*/
-/*}*/
-
-/*.reviews {*/
-	/*padding: 2rem;*/
-	/*margin-bottom: 2rem;*/
-/*}*/
-
-/*h1 {*/
-	/*color: red;*/
-/*}*/
-
-/*p {*/
-	/*margin-top: -1rem;*/
-	/*margin-bottom: 2rem;*/
-/*}*/
+h1 {
+  font-size: 50px;
+  text-align: center;
+  margin: 2rem 0 4rem;
+}
 
 body {
-	font-size: 2em;
+  margin-bottom: 10px;
+	font-size: 14px;
+  background-color: #f4ebd6: 
+}
+
+.review-single {
+  margin-bottom: 5rem;
+}
+
+.rating {
+  margin-top: 2rem;
 }
 
 .navbar {
@@ -37,7 +34,7 @@ body {
 }
 
 .navbar-btn {
-	margin-top: 3rem;
+	margin: 3.15rem 1rem;
 	background-color: #944d05; /* Brown */
 	border: none;
 	color: white;
