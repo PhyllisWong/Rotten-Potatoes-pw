@@ -14,6 +14,9 @@ const Comment = require('../models/comment.js');
 //     });
 // });
 
+app.get('/movies/:movieId/reviews/new', (req, res) => {
+  res.render('reviews/reviews-new', { movieId: req.params.movieId });
+});
 
 // SHOW: Show one review
 app.get('/reviews/:id', (req, res) => {
