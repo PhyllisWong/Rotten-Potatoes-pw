@@ -6,7 +6,7 @@ const ReviewSchema = new Schema({
   description: String,
   movieTitle: String,
   rating: Number,
-  movieId: {type: String, required: false}
+  movieId: {type: String, required: true}
 });
 
 module.exports = mongoose.model('Review', ReviewSchema);

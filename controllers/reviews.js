@@ -4,12 +4,12 @@ const Review = require('../models/review.js');
 const Comment = require('../models/comment.js');
 
 // INDEX: Show all reviews
-app.get('/movies/:movieId/reviews/new', (req, res) => {
-  res.render('reviews/reviews-new', { movieId: req.params.movieId });
-});
+// app.get('/movies/:movieId/reviews/new', (req, res) => {
+//   res.render('reviews/reviews-new', { movieId: req.params.movieId });
+// });
 
 // SHOW: Show one review
-app.get('/reviews/:id', (req, res) => {
+app.get('/movies/:movieId/reviews/:id', (req, res) => {
   Review.findById(req.params.id)
     .then(review => {
       Comment.find({ reviewId: req.params.id })
@@ -27,20 +27,9 @@ app.get('/reviews/:id', (req, res) => {
 
 // CREATE
 app.get('/movies/:movieId/reviews/reviews-new', (req, res) => {
-
-  res.render('reviews/reviews-new', {});
+  res.render('reviews/reviews-new', { movieId: req.params.movieId });
 });
 
-
-// app.post('/movies/:movieId/reviews', (req, res) => {
-//
-//   Review.create(req.body).then( review => {
-//     console.log(review);
-//     res.redirect(`movies/movies-show`);
-//   }).catch( err => {
-//     console.log(err.message);
-//   })
-// });
 
 //CREATE
 app.post('/movies/:movieId/reviews', (req, res) => {
