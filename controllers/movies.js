@@ -32,7 +32,7 @@ app.get('/movies/:id', (req, res) => {
       function renderTemplate(movie) {
         Review.find({movieId: req.params.id})
           .then(reviews => {
-            console.log(reviews);
+            console.log(`Reviews list: [${reviews}]`);
             res.render("movies/movies-show", { movie: movie, reviews: reviews });
           })
       }

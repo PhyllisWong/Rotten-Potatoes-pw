@@ -4,16 +4,6 @@ const Review = require('../models/review.js');
 const Comment = require('../models/comment.js');
 
 // INDEX: Show all reviews
-// app.get('/', (req, res) => {
-//   Review.find()
-//     .then(reviews => {
-//       res.render('reviews/reviews-index', { reviews: reviews });
-//     })
-//     .catch(err => {
-//       console.log(`Error: ${err.message}`);
-//     });
-// });
-
 app.get('/movies/:movieId/reviews/new', (req, res) => {
   res.render('reviews/reviews-new', { movieId: req.params.movieId });
 });
@@ -36,19 +26,33 @@ app.get('/reviews/:id', (req, res) => {
 
 
 // CREATE
-app.get('/review/new', (req, res) => {
+app.get('/movies/:movieId/reviews/reviews-new', (req, res) => {
+
   res.render('reviews/reviews-new', {});
 });
 
 
-app.post('/reviews', (req, res) => {
+// app.post('/movies/:movieId/reviews', (req, res) => {
+//
+//   Review.create(req.body).then( review => {
+//     console.log(review);
+//     res.redirect(`movies/movies-show`);
+//   }).catch( err => {
+//     console.log(err.message);
+//   })
+// });
+
+//CREATE
+app.post('/movies/:movieId/reviews', (req, res) => {
   Review.create(req.body).then((review) => {
-    console.log(review.rating);
-    res.redirect(`reviews/${review._id}`); //Redirect to reviews/:id
+    //console.log(review);
+    //redirect after review is saved
+    res.redirect(`reviews/${review._id}`);
   }).catch((err) => {
-    console.log(`Error: ${err.message}`);
-  });
-});
+    console.log(err.message);
+  })
+})
+
 
 
 
