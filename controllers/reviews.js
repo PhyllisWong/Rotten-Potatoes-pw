@@ -8,26 +8,12 @@ const Comment = require('../models/comment.js');
 //   res.render('reviews/reviews-new', { movieId: req.params.movieId });
 // });
 
-// SHOW: Show one review
-app.get('/movies/:movieId/reviews/:id', (req, res) => {
-  Review.findById(req.params.id)
-    .then(review => {
-      Comment.find({ reviewId: req.params.id })
-        .then(comments => {
-          console.log(comments);
-          // Respond with the template with both values
-          res.render('reviews/reviews-show', { review: review, comments: comments })
-        })
-
-  }).catch((err) => {
-    console.log(`Error: ${err.message}`);
-  })
-});
-
-
 // CREATE
 app.get('/movies/:movieId/reviews/reviews-new', (req, res) => {
-  res.render('reviews/reviews-new', { movieId: req.params.movieId });
+  Review.find({movieId: req.params.movieId}).then((movie) => {
+    console.log(movie)
+    res.render('reviews/reviews-new', { movie, movieId: req.params.movieId});
+  })
 });
 
 
@@ -43,6 +29,21 @@ app.post('/movies/:movieId/reviews', (req, res) => {
 })
 
 
+// SHOW: Show one review
+app.get('/movies/:movieId/reviews/:id', (req, res) => {
+  Review.findById(req.params.id)
+    .then(review => {
+      Comment.find({ reviewId: req.params.id })
+        .then(comments => {
+          console.log(comments);
+          // Respond with the template with both values
+          res.render('reviews/reviews-show', { review: review, comments: comments })
+        })
+
+  }).catch((err) => {
+    console.log(`Error: ${err.message}`);
+  })
+});
 
 
 // Edit
