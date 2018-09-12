@@ -61,11 +61,11 @@ app.put('/reviews/:id', (req, res) => {
 });
 
 // Delete
-app.delete('/movies/:movieId/reviews/:id', (req, res) => {
+app.delete('/reviews/:id', (req, res) => {
   console.log('DELETE review');
-  Review.findByIdAndRemove(req.params.id)
-    .then((review) => {
-      res.redirect('/');
+  Review.findByIdAndRemove(req.params.id, req.body)
+    .then(review => {
+      res.redirect(`/movies/${review.movieId}`);
     }).catch((err) => {
     console.log(`Error: ${err.message}`);
   })
