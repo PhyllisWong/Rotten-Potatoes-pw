@@ -26,18 +26,20 @@ app.post('/movies/:movieId/reviews', (req, res) => {
   }).catch((err) => {
     console.log(err.message);
   })
-})
+});
 
 
 // SHOW: Show one review
 app.get('/movies/:movieId/reviews/:id', (req, res) => {
-  Review.findById(req.params.id)
+  Review.findById(req.params._id)
     .then(review => {
+      console.log('BEER');
+      console.log(review);
       Comment.find({ reviewId: req.params.id })
         .then(comments => {
           console.log(comments);
           // Respond with the template with both values
-          res.render('reviews/reviews-show', { review: review, comments: comments })
+          res.render('reviews/reviews-show', { review: review, comments: comments})
         })
 
   }).catch((err) => {
@@ -47,7 +49,7 @@ app.get('/movies/:movieId/reviews/:id', (req, res) => {
 
 
 // Edit
-app.get('/reviews/:id/edit', (req, res) => {
+app.get('/movies/:movieId/reviews/:id/edit', (req, res) => {
   Review.findById(req.params.id, (err, review) => {
     res.render('reviews/reviews-edit', {review: review});
   })
