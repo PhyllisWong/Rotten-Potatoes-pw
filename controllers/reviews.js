@@ -29,8 +29,6 @@ app.post('/movies/:movieId/reviews', (req, res) => {
 app.get('/movies/:movieId/reviews/:id', (req, res) => {
   Review.findById(req.params._id)
     .then(review => {
-      console.log('BEER');
-      console.log(review);
       Comment.find({ reviewId: req.params.id })
         .then(comments => {
           console.log(comments);
@@ -52,10 +50,10 @@ app.get('/movies/:movieId/reviews/:id/edit', (req, res) => {
 });
 
 // Update
-app.put('/movies/:movieId/reviews/:id', (req, res) => {
+app.put('/reviews/:id', (req, res) => {
   Review.findByIdAndUpdate(req.params.id, req.body)
-    .then((review) => {
-      res.redirect(`/reviews/${review._id}`);
+    .then(review => {
+      res.redirect(`/movies/${review.movieId}`);
     })
     .catch((err) => {
       console.log(`Error: ${err.message}`)
