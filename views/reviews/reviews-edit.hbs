@@ -1,11 +1,11 @@
 <!-- views/reviews-edit.handlebars -->
 <div class="row">
   <div class="col-sm-6 col-sm-offset-3">
-    <form method="POST" action="/reviews/{{review._id}}?_method=PUT">
+    <form class="edit-form" action="/reviews/{{review._id}}?_method=PUT" method="POST">
       {{> reviews-form}}
       <!-- BUTTON -->
       <div class="form-group">
-        <button type="submit">Save Review</button>
+        <button type="submit" class="btn btn-primary">Save Review</button>
       </div>
     </form>
   </div>

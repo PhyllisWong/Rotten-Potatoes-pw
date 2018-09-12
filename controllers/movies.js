@@ -3,7 +3,6 @@ const app = express.Router();
 const Review = require('../models/review.js');
 const Comment = require('../models/comment.js');
 const MovieDb = require('moviedb-promise');
-// const moviedb = new MovieDb(process.env.SECRET_KEY);
 const SECRET_KEY = 'abd49a1bba895c620b6e924e4f3a0098';
 const moviedb = new MovieDb(SECRET_KEY);
 
@@ -16,7 +15,7 @@ app.get('/', (req, res) => {
   }).catch(console.error)
 });
 
-// SHOW one movie
+// SHOW one movie with all reviews
 app.get('/movies/:id', (req, res) => {
   moviedb.movieInfo({ id: req.params.id })
     .then(movie => {
@@ -32,7 +31,7 @@ app.get('/movies/:id', (req, res) => {
       function renderTemplate(movie) {
         Review.find({movieId: req.params.id})
           .then(reviews => {
-            console.log(reviews);
+            // console.log(`Reviews list: [${reviews}]`);
             res.render("movies/movies-show", { movie: movie, reviews: reviews });
           })
       }

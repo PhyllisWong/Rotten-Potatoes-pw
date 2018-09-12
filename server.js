@@ -44,10 +44,9 @@ app.use( moviesController);
 // Mongoose Connection
 const mongoUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/rotten-potatoes';
 mongoose.connect( mongoUri, { useNewUrlParser: true });
-mongoose.set('debug', true);
-
-
-// Server
+mongoose.set('debug', true);// Server
 app.listen(port, () => {
   console.log(`App listening on port: ${port}`)
 });
+
+
