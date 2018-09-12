@@ -4,11 +4,9 @@ const Review = require('../models/review.js');
 const Comment = require('../models/comment.js');
 
 // INDEX: Show all reviews
-// app.get('/movies/:movieId/reviews/new', (req, res) => {
-//   res.render('reviews/reviews-new', { movieId: req.params.movieId });
-// });
 
-// CREATE
+
+// CREATE: Show the review template
 app.get('/movies/:movieId/reviews/reviews-new', (req, res) => {
   Review.find({movieId: req.params.movieId}).then((movie) => {
     console.log(movie)
@@ -20,8 +18,6 @@ app.get('/movies/:movieId/reviews/reviews-new', (req, res) => {
 //CREATE
 app.post('/movies/:movieId/reviews', (req, res) => {
   Review.create(req.body).then((review) => {
-    //console.log(review);
-    //redirect after review is saved
     res.redirect(`reviews/${review._id}`);
   }).catch((err) => {
     console.log(err.message);
@@ -56,7 +52,7 @@ app.get('/movies/:movieId/reviews/:id/edit', (req, res) => {
 });
 
 // Update
-app.put('/reviews/:id', (req, res) => {
+app.put('/movies/:movieId/reviews/:id', (req, res) => {
   Review.findByIdAndUpdate(req.params.id, req.body)
     .then((review) => {
       res.redirect(`/reviews/${review._id}`);
@@ -67,7 +63,7 @@ app.put('/reviews/:id', (req, res) => {
 });
 
 // Delete
-app.delete('/reviews/:id', (req, res) => {
+app.delete('/movies/:movieId/reviews/:id', (req, res) => {
   console.log('DELETE review');
   Review.findByIdAndRemove(req.params.id)
     .then((review) => {

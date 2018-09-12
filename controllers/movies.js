@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
   }).catch(console.error)
 });
 
-// SHOW one movie
+// SHOW one movie with all reviews
 app.get('/movies/:id', (req, res) => {
   moviedb.movieInfo({ id: req.params.id })
     .then(movie => {
@@ -31,7 +31,7 @@ app.get('/movies/:id', (req, res) => {
       function renderTemplate(movie) {
         Review.find({movieId: req.params.id})
           .then(reviews => {
-            console.log(`Reviews list: [${reviews}]`);
+            // console.log(`Reviews list: [${reviews}]`);
             res.render("movies/movies-show", { movie: movie, reviews: reviews });
           })
       }
