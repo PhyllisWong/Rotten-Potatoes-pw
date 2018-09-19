@@ -3,8 +3,7 @@ const app = express.Router();
 const Review = require('../models/review.js');
 const Comment = require('../models/comment.js');
 const MovieDb = require('moviedb-promise');
-const SECRET_KEY = 'abd49a1bba895c620b6e924e4f3a0098';
-const moviedb = new MovieDb(SECRET_KEY);
+const moviedb = new MovieDb(process.env.SECRET_KEY);
 
 
 // Show all trending movies
