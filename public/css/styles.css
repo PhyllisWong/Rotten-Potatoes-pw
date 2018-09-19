@@ -40,3 +40,30 @@ body {
 	color: white;
 	display: inline-block;
 }
+
+/**************************
+			movie index
+**************************/
+
+.movie-container {}
+
+.movie-title {
+	/*margin-top: 4rem;*/
+	font-family: "Work Sans", sans-serif;
+	font-weight: 300;
+	font-size: 24px;
+	margin-bottom: 4rem;
+}
+
+.movie-thumb {
+	border-radius: 10px;
+	/*border: 1px solid black;*/
+}
+
+/*.row {*/
+	/*max-height: 400px;*/
+/*}*/
+
+.col-sm-3 {
+	max-width: 250px;
+}

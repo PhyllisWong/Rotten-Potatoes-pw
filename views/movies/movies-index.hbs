@@ -1,9 +1,14 @@
 <h1>Now Playing</h1>
-{{#each movies}}
-  <ul class="list-unstyled">
-    <li style="font-size:20px">{{this.title}}</li>
-    <a href="/movies/{{this.id}}">
-      <img src="https://image.tmdb.org/t/p/w154{{this.poster_path}}" class="">
-    </a>
-  </ul>
-{{/each}}
+
+<div class="movie-container">
+  <div class="row">
+    {{#each movies}}
+    <div class="col-sm-3">
+      <a href="/movies/{{this.id}}">
+        <img src="https://image.tmdb.org/t/p/w154{{this.poster_path}}" class="movie-thumb">
+      </a>
+      <p class="movie-title"> {{this.title}}</p>
+    </div>
+    {{/each}}
+  </div>
+</div>
