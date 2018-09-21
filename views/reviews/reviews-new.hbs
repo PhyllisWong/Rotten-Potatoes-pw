@@ -1,9 +1,7 @@
 <!--views/reviews-new.hbs-->
 <div class="row">
-  <div class="col-sm-3 col-sm-offset-3">
-    <!--/movies/:movieId/reviews/new-->
+  <div class="col-sm-6 review-form">
     <form class="new-review" action="/movies/{{movieId}}/reviews" method="POST" >
-      <div>{{movieId}}</div>
       {{> reviews-form}}
 
       <!-- BUTTON -->

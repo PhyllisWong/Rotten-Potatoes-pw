@@ -20,10 +20,10 @@ app.post('/reviews/comments', (req, res) => {
 });
 
 // DELETE Comment
-app.delete('/reviews/comments/:id', (req, res) => {
+app.delete('/reviews/comments/:_id', (req, res) => {
 
   console.log("Delete comment")
-  Comment.findByIdAndRemove(req.params.id)
+  Comment.findByIdAndRemove(req.params._id)
     .then((comment) => {
       res.status(200).send(comment);
     })

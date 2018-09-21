@@ -28,6 +28,12 @@ body {
   margin-bottom: 5rem;
 }
 
+.review-form {
+	display: flex !important;
+	justify-content: center;
+	margin: auto;
+}
+
 .rating {
   margin-top: 2rem;
 }

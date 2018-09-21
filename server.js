@@ -12,7 +12,7 @@ const Review = require('./models/review.js');
 const Comment = require('./models/comment.js');
 
 // Port
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 
 
 // MIDDLEWARE

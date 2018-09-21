@@ -9,7 +9,7 @@ const Comment = require('../models/comment.js');
 // CREATE: Show the review template
 app.get('/movies/:movieId/reviews/reviews-new', (req, res) => {
   Review.find({movieId: req.params.movieId}).then((movie) => {
-    console.log(movie)
+    console.log(movie);
     res.render('reviews/reviews-new', { movie, movieId: req.params.movieId});
   })
 });

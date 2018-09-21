@@ -49,8 +49,8 @@ axios.post('user', comment)
   });
 
 document.querySelector('#deleteComment').addEventListener('click', (e) => {
-  console.log("click!")
-  let commentId = this.getAttribute('data-comment-id')
+  console.log("click!");
+  let commentId = this.getAttribute('data-comment-id');
   axios.delete(`/reviews/comments/${commentId}`)
     .then(response => {
       console.log(response)
