@@ -12,23 +12,24 @@ const Comment = require('../models/comment.js');
 app.post('/reviews/comments', (req, res) => {
   Comment.create(req.body)
     .then(comment => {
-      res.redirect(`/reviews/${comment.reviewId}`);
+      res.status(200).send({ comment: comment });
     })
     .catch((err) => {
-      console.log(err.message);
+      res.status(400).send({ err: err });
     })
 });
 
 // DELETE Comment
-app.delete('/reviews/comments/:id', (req, res) => {
+app.delete('/reviews/comments/:_id', (req, res) => {
 
-  console.log("inside delete route")
-  Comment.findByIdAndRemove(req.params.id)
+  console.log("Delete comment")
+  Comment.findByIdAndRemove(req.params._id)
     .then((comment) => {
-      res.redirect(`/reviews/${comment.reviewId}`);
+      res.status(200).send(comment);
     })
     .catch((err) => {
       console.log(err.message);
+      res.status(400).send(err)
     })
 });
 

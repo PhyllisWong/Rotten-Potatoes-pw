@@ -9,7 +9,7 @@ const Comment = require('../models/comment.js');
 // CREATE: Show the review template
 app.get('/movies/:movieId/reviews/reviews-new', (req, res) => {
   Review.find({movieId: req.params.movieId}).then((movie) => {
-    console.log(movie)
+    console.log(movie);
     res.render('reviews/reviews-new', { movie, movieId: req.params.movieId});
   })
 });
@@ -18,7 +18,7 @@ app.get('/movies/:movieId/reviews/reviews-new', (req, res) => {
 //CREATE
 app.post('/movies/:movieId/reviews', (req, res) => {
   Review.create(req.body).then((review) => {
-    res.redirect(`reviews/${review._id}`);
+    res.redirect(`reviews/${review.id}`);
   }).catch((err) => {
     console.log(err.message);
   })
@@ -27,13 +27,13 @@ app.post('/movies/:movieId/reviews', (req, res) => {
 
 // SHOW: Show one review
 app.get('/movies/:movieId/reviews/:id', (req, res) => {
-  Review.findById(req.params._id)
+  Review.findById(req.params.id)
     .then(review => {
       Comment.find({ reviewId: req.params.id })
         .then(comments => {
           console.log(comments);
           // Respond with the template with both values
-          res.render('reviews/reviews-show', { review: review, comments: comments})
+          res.render('reviews/review-show', { review: review, comments: comments})
         })
 
   }).catch((err) => {
@@ -50,7 +50,7 @@ app.get('/movies/:movieId/reviews/:id/edit', (req, res) => {
 });
 
 // Update
-app.put('/reviews/:id', (req, res) => {
+app.post('/movies/:movieId/reviews/:id', (req, res) => {
   Review.findByIdAndUpdate(req.params.id, req.body)
     .then(review => {
       res.redirect(`/movies/${review.movieId}`);

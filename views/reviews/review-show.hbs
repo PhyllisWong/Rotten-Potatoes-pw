@@ -1,0 +1,31 @@
+<!--views/review-show.hbs-->
+<a class="home-link" href="/">Back to Home</a>
+
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-3">
+    <h1 class="review-title">{{review.title}}</h1>
+    <h2>{{review.movieTitle}}</h2>
+    <p>{{review.description}}</p>
+    <p class="rating">Movie Rating: {{review.rating}}</p>
+    <br>
+
+    <p><a href="/movies/{{review.movieId}}/reviews/{{review._id}}/edit">Edit</a></p>
+
+    <!-- Delete button -->
+    <p><form method="POST" action="/reviews/{{review._id}}?_method=DELETE">
+        <button type="submit">Delete</button></form>
+    </p>
+
+    <hr>
+
+    <!--Comment form-->
+    {{> comment-form}}
+    <hr>
+    <div id="comments">
+      <!--Show Comments-->
+      {{#each comments}}
+        {{> comment}}
+      {{/each}}
+    </div>
+  </div>
+</div>
