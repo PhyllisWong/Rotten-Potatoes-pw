@@ -1,15 +1,10 @@
 <!--views/partials/comment.hbs-->
 
-<div>
-  <div>
+<div class="card" id="{{this._id}}">
+  <div class="card-block">
     <h4 class="card-title">{{this.title}}</h4>
     <p class="card-text">{{this.content}}</p>
+    <!--Delete link-->
+    <p><button class="btn btn-link delete-comment" data-comment-id="{{response._id}}">Delete</button></p>
   </div>
-
-  <!--Delete link-->
-  <p>
-    <form method="POST" action="/reviews/comments/{{this._id}}?_method=DELETE">
-      <button class="btn btn-link" type="submit">Delete</button>
-    </form>
-  </p>
 </div>

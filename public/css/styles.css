@@ -10,6 +10,20 @@ body {
   background-color: #f4ebd6: 
 }
 
+.home-link {
+	text-decoration: none;
+}
+
+.reviews-title {
+	display: flex;
+	justify-content: center;
+	margin: auto;
+}
+
+.review-title {
+	font-size: 1em;
+}
+
 .review-single {
   margin-bottom: 5rem;
 }
