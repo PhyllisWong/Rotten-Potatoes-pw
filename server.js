@@ -30,7 +30,7 @@ app.set('view engine', 'hbs');
 
 
 // ROUTES
-app.use('/', reviewsController);
+app.use( reviewsController);
 app.use( commentsController);
 app.use( moviesController);
 
