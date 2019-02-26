@@ -1,5 +1,5 @@
-const express = require('express');
-const app = express();
+const express = require('express')
+const app = express()
 const Review = require('../models/review.js');
 const Comment = require('../models/comment.js');
 
@@ -8,9 +8,14 @@ const Comment = require('../models/comment.js');
 
 // CREATE: Show the review template
 app.get('/movies/:movieId/reviews/reviews-new', (req, res) => {
-  Review.find({movieId: req.params.movieId}).then((movie) => {
+  Review.find({
+    movieId: req.params.movieId
+  }).then((movie) => {
     console.log(movie);
-    res.render('reviews/reviews-new', { movie, movieId: req.params.movieId});
+    res.render('reviews/reviews-new', {
+      movie,
+      movieId: req.params.movieId
+    });
   })
 });
 
@@ -29,23 +34,30 @@ app.post('/movies/:movieId/reviews', (req, res) => {
 app.get('/movies/:movieId/reviews/:id', (req, res) => {
   Review.findById(req.params.id)
     .then(review => {
-      Comment.find({ reviewId: req.params.id })
+      Comment.find({
+          reviewId: req.params.id
+        })
         .then(comments => {
           console.log(comments);
           // Respond with the template with both values
-          res.render('reviews/review-show', { review: review, comments: comments})
+          res.render('reviews/review-show', {
+            review: review,
+            comments: comments
+          })
         })
 
-  }).catch((err) => {
-    console.log(`Error: ${err.message}`);
-  })
+    }).catch((err) => {
+      console.log(`Error: ${err.message}`);
+    })
 });
 
 
 // Edit
 app.get('/movies/:movieId/reviews/:id/edit', (req, res) => {
   Review.findById(req.params.id, (err, review) => {
-    res.render('reviews/reviews-edit', {review: review});
+    res.render('reviews/reviews-edit', {
+      review: review
+    });
   })
 });
 
@@ -67,8 +79,8 @@ app.delete('/reviews/:id', (req, res) => {
     .then(review => {
       res.redirect(`/movies/${review.movieId}`);
     }).catch((err) => {
-    console.log(`Error: ${err.message}`);
-  })
+      console.log(`Error: ${err.message}`);
+    })
 });
 
 module.exports = app;
