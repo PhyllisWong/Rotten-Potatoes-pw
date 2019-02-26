@@ -43,7 +43,7 @@ Minimal ignore files for boilerplate web project.
 # -----------------------------------------------------------------
 
 # ignore all files starting with . or ~
-.*
+.
 ~*
 .env
 
